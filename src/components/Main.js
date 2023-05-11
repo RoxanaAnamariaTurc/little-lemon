@@ -1,13 +1,13 @@
-import logo from '../assets/Logo.svg';
+import image from '../assets/restauranfood.jpg';
 import Dropdown from './Dropdown';
 
 const Main = () =>
 {
     return (
         <>
-            <header>
+            <header className='main-header'>
                 <h2>Reserve a Table</h2>
-                <img src={logo} alt="logo" />
+                <img src={image} alt="logo" />
             </header>
             <main>
                 <form>
