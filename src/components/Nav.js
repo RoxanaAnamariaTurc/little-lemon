@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../App.css';
 import logo from '../assets/Logo.svg';
+import { Link } from 'react-router-dom';
 const Nav = () =>
 {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,12 +39,24 @@ const Nav = () =>
                     </div>
 
                     <ul className={`main-ul ${isOpen ? "open" : ""}`}>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Menu</li>
-                        <li>Reservation</li>
-                        <li>Order online</li>
-                        <li>Login</li>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/about">About</Link>
+                        </li>
+                        <li>
+                            <Link to="/menu">Menu</Link>
+                        </li>
+                        <li>
+                            <Link to="/reservation" >Reservation</Link>
+                        </li>
+                        <li>
+                            <Link to="/order">Order online</Link>
+                        </li>
+                        <li>
+                            <Link to="/login">Login</Link>
+                        </li>
                     </ul>
                 </nav>
             </header>

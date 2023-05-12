@@ -1,12 +1,16 @@
+import '../App.css';
+import logo from '../assets/lemon.png';
+import facebook from '../assets/facebook.png';
+import instagram from '../assets/instagram.png';
 const Footer = () =>
 {
     return (
         <>
-            <main>
-                <section>
-                    logo-image
+            <main className="footer">
+                <section className="footer-logo">
+                    <img src={logo} alt='logo' />
                 </section>
-                <section>
+                <section className="footer-nav">
                     <nav>
                         <ul>
                             <li>Home</li>
@@ -18,16 +22,20 @@ const Footer = () =>
                         </ul>
                     </nav>
                 </section>
-                <section>
+                <section className="footer-contact">
                     <h2>Contact</h2>
                     <p>Address: 1 Avenue way, CA</p>
                     <p>Phone: +1234 555 779</p>
                 </section>
-                <section>
+                <section className="footer-links">
                     <nav>
                         <ul>
-                            <li>Instagram</li>
-                            <li>Facebook</li>
+                            <li>
+                                <img src={instagram} alt="instagram link" />
+                            </li>
+                            <li>
+                                <img src={facebook} alt="facebook link" />
+                            </li>
                         </ul>
                     </nav>
                 </section>
