@@ -130,6 +130,8 @@ li {
   }
 }
 
+
+
 .main-header {
   background-color: var(--green);
   color: var(--yellow);
@@ -222,6 +224,7 @@ button {
   padding: 25px;
   background-color: var(--yellow);
   color: var(--green);
+  margin: 10px;
 
 }
 
@@ -255,4 +258,222 @@ h2,
 .footer-links img {
   width: 5rem;
   background-color: var(--yellow);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+}
+
+.modal-content {
+  background-color: var(--grey);
+  padding: 5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+
+}
+
+.modal h2 {
+  margin-top: 0;
+  background-color: var(--grey);
+  font-family: var(--subheading);
+  text-align: center;
+  font-size: var(--p-size);
+}
+
+.modal p {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: var(--p);
+}
+
+.modal button {
+  font-family: var(--subheading);
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  margin-left: 6rem;
+  width: 300px;
+  height: 50px;
+
+}
+
+.home-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.home-header img {
+  width: 50rem;
+  border-radius: 5rem;
+  box-shadow: 1rem 2rem var(--green);
+}
+
+.home-header .home-section h1 {
+  font-family: var(--header);
+  font-size: var(--heading-size);
+  color: var(--green);
+
+}
+
+.home-header .home-section h3 {
+  font-family: var(--subheading);
+  font-size: var(--subheading-size);
+  color: var(--green);
+}
+
+.home-header .home-section p {
+  font-family: var(--p);
+  font-size: var(--p-size);
+  color: var(--green);
+}
+
+.home-header .home-section .reserve-button {
+  display: inline-block;
+  background-color: var(--green);
+  padding: 12px 24px;
+  border-radius: 1rem;
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: var(--p-weight);
+  transition: all 0.3s ease-in-out;
+}
+
+.home-header .home-section .reserve-button:hover {
+  background-color: var(--yellow);
+  color: var(--green);
+}
+
+.error input,
+.error select,
+.error textarea {
+  border-color: red;
+}
+
+.error label {
+  color: red;
+}
+
+.specials-title h2 {
+  margin-top: 10rem;
+  font-family: var(--subheading);
+  background-color: var(--grey);
+  text-align: center;
+  font-size: var(--subheading-size);
+  color: var(--green);
+}
+
+.order-online-btn {
+  float: right;
+  background-color: var(--green);
+  padding: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--yellow);
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  margin-right: 120px;
+}
+
+.order-online-btn:hover {
+  background-color: var(--yellow);
+  color: var(--green);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 20px;
+  padding: 10px 10px;
+  background-color: var(--green);
+  margin: 20px auto;
+  width: 100%;
+}
+
+
+
+.testimonial-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 250px;
+  height: 350px;
+  box-shadow: 2px 3px var(--green);
+  border-radius: 20px;
+  margin: auto;
+}
+
+.testimonial {
+  text-align: center;
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  color: var(--green);
+}
+
+.testimonial-card h2 {
+  background-color: var(--grey);
+}
+
+.testimonial-section {
+  margin-top: 100px;
+}
+
+.card-text img {
+  width: 2.5rem;
+}
+
+.reservation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+.reservationH2 {
+  text-align: center;
+  background-color: var(--grey);
+  font-family: var(--header);
+  font-size: var(--subheading-size);
+  color: var(--green);
+  margin-top: 30px;
+}
+
+.reservation label {
+  font-size: var(--p-size);
+  background-color: var(--green);
+  color: var(--yellow);
+  font-weight: var(--p-weight);
+  font-family: var(--p);
+}
+
+.reservation input {
+  width: 80%;
+  height: 2rem;
+  border-radius: 10px;
+  border: 2px solid var(--green);
+  font-size: var(--p-size);
+  font-family: var(--p);
+  box-shadow: 3px 5px var(--yellow);
+}
+
+.reservation select {
+  width: 80%;
+  height: 2rem;
+  border-radius: 10px;
+  border: 2px solid var(--green);
+  font-size: var(--p-size);
+  font-family: var(--p);
+  box-shadow: 3px 5px var(--yellow);
+}
+
+.reservation button {
+  grid-column: 2;
 }

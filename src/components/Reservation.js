@@ -1,75 +1,160 @@
-import image from '../assets/restauranfood.jpg';
+import { useState } from 'react';
 import Dropdown from './Dropdown';
-import '../App.css';
+
+const availableTimes = [
+    {
+        id: 1,
+        time: '14:00',
+        date: '15/05/2023'
+    },
+    {
+        id: 2,
+        time: '19:00',
+        date: '17/05/2023'
+    },
+    {
+        id: 3,
+        time: '14:00',
+        date: '17/05/2023'
+    },
+    {
+        id: 4,
+        time: '14:00',
+        date: '16/05/2023'
+    },
+    {
+        id: 5,
+        time: '18:00',
+        date: '16/05/2023'
+    },
+    {
+        id: 6,
+        time: '17:00',
+        date: '15/05/2023'
+    },
+    {
+        id: 7,
+        time: '18:00',
+        date: '18/05/2023'
+    },
+    {
+        id: 8,
+        time: '14:00',
+        date: '18/05/2023'
+    },
+    {
+        id: 9,
+        time: '14:00',
+        date: '19/05/2023'
+    },
+    {
+        id: 10,
+        time: '15:00',
+        date: '19/05/2023'
+    },
+]
 
 const Reservation = () =>
 {
+
+    const [confirmation, setConfirmation] = useState(false);
+
+
+    const handleSubmit = (e) =>
+    {
+        e.preventDefault();
+        setConfirmation(true);
+    }
+    const handleReset = () =>
+    {
+        const form = document.getElementById("reservation-form");
+        form.reset();
+    };
+
     return (
         <>
-            <header className='main-header'>
-                <h2>Reserve a Table</h2>
-                <img src={image} alt="logo" />
-            </header>
-            <main className='main-section'>
-
+            <h2 className='reservationH2'>Reserve a Table</h2>
+            <form className="reservation" id="reservation-form" onSubmit={handleSubmit}>
                 <Dropdown />
-                <section className='main-body'>
-                    <p>Number of guests</p>
-                    <label>
-                        <input type="radio" id="guests" />
-                        <span>2</span>
-                    </label>
-                    <label>
-                        <input type="radio" id="guests" />
-                        <span>4</span>
-                    </label>
-                    <label>
-                        <input type="radio" id="guests" />
-                        <span>6</span>
-                    </label>
-                    <label>
-                        <input type="radio" id="guests" />
-                        <span>10</span>
-                    </label>
+                <div className='main-body'>
+                    <label htmlFor="res-name">Reservation Name</label><br />
+                    <input
+                        type="text"
+                        id="res-name"
+                        name="res-name"
+                        required
+                    />
+                </div>
 
-                </section>
+                <div className='main-body'>
+                    <label htmlFor="res-phone">Reservation Contact Number</label><br />
+                    <input
+                        type="number"
+                        id="res-phone"
+                        name="res-phone"
+                        required
+                    />
+                </div>
+                <div className='main-body'>
+                    <label htmlFor="res-guests">Number of Guests</label><br />
+                    <select
+                        id="res-guests"
+                        required
+                    >
+                        <option value="">--Select--</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
 
-                <section className='main-body'>
-                    <p>Reservation date</p>
-                    <input type="date" />
-                </section>
-                <section className='main-body'>
-                    <p>Sitting preferences</p>
-                    <label>
-                        <input type="radio" />
-                        Outdoors
-                    </label>
-                    <label>
-                        <input type="radio" />
-                        Indoors
-                    </label>
-                </section>
-                <section className='main-body'>
-                    <p>Booking details</p>
-                    <label>
+                <div className='main-body'>
+                    <label htmlFor="res-date">Select Reservation Date</label><br />
+                    <input
+                        type="date"
+                        id="res-date"
+                        required
 
-                        Name
-                        <input type="text" />
+                    />
+                </div>
 
-                    </label><br />
-                    <label>
-                        Phone
-                        <input type="text" min="11" max="12" />
+                <div className='main-body'>
+                    <label htmlFor="res-sitting">Sitting Preferences</label><br />
+                    <select
+                        id="res-sitting"
+                        required
 
-                    </label>
+                    >
+                        <option value="">--Select--</option>
+                        <option value="outdoors">Outdoors</option>
+                        <option value="indoors">Indoors</option>
+                    </select>
+                </div>
 
-                </section>
-                <button>Reserve now!</button>
+                <button type="submit">Reserve now!</button>
+                {confirmation &&
+                    <div className='modal'>
+                        <div className='modal-content'>
+                            <p>Reservation Successful</p>
+                            <p>We are looking forward to seeing you soon!</p>
+                            <button
+                                onClick={() =>
+                                {
+                                    setConfirmation(false);
+                                    handleReset()
 
-            </main>
+                                }}
+
+                            >Close</button>
+                        </div>
+                    </div>
+                }
+            </form>
 
         </>
     )
 }
+
 
 export default Reservation;

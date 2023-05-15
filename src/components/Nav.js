@@ -2,6 +2,9 @@ import { useState } from 'react';
 import '../App.css';
 import logo from '../assets/Logo.svg';
 import { Link } from 'react-router-dom';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
 const Nav = () =>
 {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +24,31 @@ const Nav = () =>
         setIsOpen(false);
     };
 
+    const styledLinks = css`
+    text-decoration: none;
+    padding: 15px;
+    display: in-line block;
+    background-color: var(--green);
+    color:var(--yellow);
+    border-radius: 20px;
+
+    &:hover{
+        background-color: var(--yellow);
+        color: var(--green);
+    }
+    `
+    const StyledLink = styled(Link)`
+        ${styledLinks}
+    `
+
+
     return (
         <>
             <header className='nav-header'>
-                <img src={logo} alt="logo" />
+                <Link to='/'>
+                    <img src={logo} alt="logo" />
+                </Link>
+
                 <nav className='main-nav'>
                     <div className="hamburger"
                         role="button"
@@ -38,28 +62,28 @@ const Nav = () =>
                         <span className="hamburger-line"></span>
                     </div>
 
-                    <ul className={`main-ul ${isOpen ? "open" : ""}`}>
+                    <ul className={`main-ul ${isOpen ? "open" : ""} `}>
                         <li>
-                            <Link to="/">Home</Link>
+                            <StyledLink to="/" > Home</StyledLink>
                         </li>
                         <li>
-                            <Link to="/about">About</Link>
+                            <StyledLink to="/about" >About</StyledLink>
                         </li>
                         <li>
-                            <Link to="/menu">Menu</Link>
+                            <StyledLink to="/menu" >Menu</StyledLink>
                         </li>
                         <li>
-                            <Link to="/reservation" >Reservation</Link>
+                            <StyledLink to="/reservation"  >Reservation</StyledLink>
                         </li>
                         <li>
-                            <Link to="/order">Order online</Link>
+                            <StyledLink to="/order" >Order online</StyledLink>
                         </li>
                         <li>
-                            <Link to="/login">Login</Link>
+                            <StyledLink to="/login" >Login</StyledLink>
                         </li>
                     </ul>
                 </nav>
-            </header>
+            </header >
 
 
         </>

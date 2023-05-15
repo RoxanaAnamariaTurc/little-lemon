@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom';
 import owners from '../assets/Mario and Adrian A.jpg';
 import About from './About';
 import '../App.css';
+import Specials from './Specials';
+import Testimonials from './Testimonials';
 
 const Home = () =>
 {
     return (
         <>
-            <header>
-                <section>
+            <header className='home-header'>
+                <section className='home-section'>
                     <h1>Little Lemon</h1>
                     <h3>Chicago</h3>
                     <p>A family owned restaurant tha offers Mediterranean dishes with a twist</p>
@@ -20,33 +22,15 @@ const Home = () =>
             </header>
             <main>
                 <section>
-                    <header>
+                    <header className="specials-title">
                         <h2>Specials</h2>
-                        <Link to="/order">Order Online</Link>
+                        <Specials />
+                        <Link to="/order" className="order-online-btn">Order Online</Link>
                     </header>
-                    <section>
-                        <article>
-                            <img />
-                        </article>
-                        <article>
-                            <img />
-                        </article>
-                        <article>
-                            <img />
-                        </article>
-                    </section>
                 </section>
-                <section>
-                    <header>Testimonials</header>
-                    <article>
-
-                    </article>
-                    <article>
-
-                    </article>
-                    <article>
-
-                    </article>
+                <section className='testimonial-section'>
+                    <header className='testimonial'>Testimonials</header>
+                    <Testimonials />
                 </section>
 
             </main>
