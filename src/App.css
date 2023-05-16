@@ -477,3 +477,11 @@ h2,
 .reservation button {
   grid-column: 2;
 }
+
+.error-message {
+  color: red;
+}
+
+.error-input {
+  border: 1px solid red;
+}

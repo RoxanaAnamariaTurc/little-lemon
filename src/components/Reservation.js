@@ -58,17 +58,61 @@ const Reservation = () =>
 {
 
     const [confirmation, setConfirmation] = useState(false);
+    const [errors, setErrors] = useState({});
 
+    // const handleSubmit = (e) =>
+    // {
+    //     e.preventDefault();
+    //     setConfirmation(true);
+    // }
 
     const handleSubmit = (e) =>
     {
         e.preventDefault();
-        setConfirmation(true);
-    }
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        const validationErrors = validate(data);
+        if (Object.keys(validationErrors).length === 0)
+        {
+            setErrors({});
+            setConfirmation(true);
+            form.reset();
+        } else
+        {
+            setErrors(validationErrors);
+        }
+    };
+
+    const validate = (data) =>
+    {
+        const errors = {};
+        if (!data['res-name'])
+        {
+            errors['res-name'] = 'Reservation Name is required';
+        } if (!data['res-phone'])
+        {
+            errors['res-phone'] = 'Reservation phone is required';
+        } if (!data['res-guests'])
+        {
+            errors['res-guests'] = 'Please select the number of guests';
+        } if (!data['res-date'])
+        {
+            errors['res-date'] = "Please select the Reservation date";
+        } if (!data['res-sitting'])
+        {
+            errors['res-sitting'] = 'Please choose your preferred sitting area';
+        }
+
+        return errors;
+    };
+
+
     const handleReset = () =>
     {
         const form = document.getElementById("reservation-form");
         form.reset();
+        setErrors({});
     };
 
     return (
@@ -83,7 +127,9 @@ const Reservation = () =>
                         id="res-name"
                         name="res-name"
                         required
+                        className={errors['res-name'] ? 'error' : ''}
                     />
+                    {errors['res-name'] && <div className='error-message'>{errors['res-name']}</div>}
                 </div>
 
                 <div className='main-body'>
@@ -93,13 +139,17 @@ const Reservation = () =>
                         id="res-phone"
                         name="res-phone"
                         required
+                        className={errors['res-phone'] ? 'error' : ''}
                     />
+                    {errors['res-phone'] && <div className='error-message'>{errors['res-phone']}</div>}
                 </div>
                 <div className='main-body'>
                     <label htmlFor="res-guests">Number of Guests</label><br />
                     <select
                         id="res-guests"
                         required
+                        name="res-guests"
+                        className={errors['res-guests'] ? 'error' : ''}
                     >
                         <option value="">--Select--</option>
                         <option value="2">2</option>
@@ -107,6 +157,7 @@ const Reservation = () =>
                         <option value="6">6</option>
                         <option value="8">8</option>
                     </select>
+                    {errors['res-guests'] && <div className='error-message'>{errors['res-guests']}</div>}
                 </div>
 
                 <div className='main-body'>
@@ -115,8 +166,11 @@ const Reservation = () =>
                         type="date"
                         id="res-date"
                         required
+                        name="res-date"
+                        className={errors['res-date'] ? 'error' : ''}
 
                     />
+                    {errors['res-date'] && <div className='error-message'>{errors['res-date']}</div>}
                 </div>
 
                 <div className='main-body'>
@@ -124,15 +178,19 @@ const Reservation = () =>
                     <select
                         id="res-sitting"
                         required
+                        name="res-sitting"
+                        className={errors['res-sitting'] ? 'error' : ''}
 
                     >
                         <option value="">--Select--</option>
                         <option value="outdoors">Outdoors</option>
                         <option value="indoors">Indoors</option>
+
                     </select>
+                    {errors['res-sitting'] && <div className='error-message'>{errors['res-sitting']}</div>}
                 </div>
 
-                <button type="submit">Reserve now!</button>
+                <button type="submit" disabled={Object.keys(errors).length > 0}>Reserve now!</button>
                 {confirmation &&
                     <div className='modal'>
                         <div className='modal-content'>
