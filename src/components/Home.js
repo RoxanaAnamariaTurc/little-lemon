@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import owners from '../assets/Mario and Adrian A.jpg';
-import About from './About';
 import '../App.css';
 import Specials from './Specials';
 import Testimonials from './Testimonials';
@@ -34,7 +33,7 @@ const Home = () =>
                 </section>
 
             </main>
-            <About />
+
         </>
     )
 }
