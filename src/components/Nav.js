@@ -4,8 +4,9 @@ import logo from '../assets/Logo.svg';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { LogoutButton } from './Login';
 
-const Nav = () =>
+const Nav = ({ isLoggedIn, username, onLogout }) =>
 {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -80,6 +81,14 @@ const Nav = () =>
                         </li>
                         <li>
                             <StyledLink to="/login" >Login</StyledLink>
+                        </li>
+                        <li>
+                            {isLoggedIn && (
+                                <>
+                                    <span>Hello, {username}</span>
+                                    <LogoutButton onClick={onLogout}>Logout</LogoutButton>
+                                </>
+                            )}
                         </li>
                     </ul>
                 </nav>
