@@ -1,22 +1,39 @@
+import appetizer1 from '../src/images/appetizer1.jpg';
+import appetizer2 from '../src/images/appetizer2.jpg';
+import appetizer3 from '../src/images/appetizer3.jpg';
+import appetizer4 from '../src/images/appetizer4.jpg';
+import main1 from '../src/images/main1.jpg';
+import main2 from '../src/images/main2.jpg';
+import main3 from '../src/images/main3.jpg';
+import dessert1 from '../src/images/dessert1.jpg';
+import dessert2 from '../src/images/dessert2.jpg';
+
+
+
 export const appetizers = [
     {
         id: 1,
         title: 'Garlic Bread',
-        price: '$12.00'
+        price: '$12.00',
+        image: appetizer1,
     },
     {
         id: 2,
         title: 'Bruschetta',
-        price: '$10.50'
+        price: '$10.50',
+        image: appetizer2,
+
     },
     {
         id: 3,
         title: 'Caprese Skewers',
-        price: '$14.50'
+        price: '$14.50',
+        image: appetizer3,
     }, {
         id: 4,
         title: 'Stuffed Mushrooms',
-        price: '$11.75'
+        price: '$11.75',
+        image: appetizer4,
     },
     {
         id: 5,
@@ -38,16 +55,19 @@ export const appetizers = [
 ]
 
 
+
 export const mains = [
     {
         id: 1,
         title: 'Grilled Salmon',
-        price: '$22.50'
+        price: '$22.50',
+        image: main1,
     },
     {
         id: 2,
         title: 'Chicken Parmesan',
-        price: '$18.75'
+        price: '$18.75',
+        image: main2,
     },
     {
         id: 3,
@@ -57,7 +77,8 @@ export const mains = [
     {
         id: 4,
         title: 'Pasta Alfredo',
-        price: '$16.50'
+        price: '$16.50',
+        image: main3,
     },
     {
         id: 5,
@@ -82,7 +103,8 @@ export const desserts = [
     {
         id: 1,
         title: 'Chocolate Cake',
-        price: '$8.50'
+        price: '$8.50',
+
     },
     {
         id: 2,
@@ -92,7 +114,8 @@ export const desserts = [
     {
         id: 3,
         title: 'Tiramisu',
-        price: '$9.00'
+        price: '$9.00',
+        image: dessert1,
     },
     {
         id: 4,
@@ -102,7 +125,8 @@ export const desserts = [
     {
         id: 5,
         title: 'Crème Brûlée',
-        price: '$9.25'
+        price: '$9.25',
+        image: dessert2,
     }
 ];
 
@@ -158,3 +182,5 @@ export const drinks = [
         price: '$4.50'
     }
 ];
+
+

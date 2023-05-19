@@ -32,7 +32,7 @@ const DrinksSection = styled.section`
     }
 `
 
-const FoodSection = styled.section`
+export const FoodSection = styled.section`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color:  #b4bfb4;
@@ -45,7 +45,7 @@ const FoodSection = styled.section`
 
 `
 
-const H3 = styled.h3`
+export const H3 = styled.h3`
     grid-column: 1 / -1;
     background-color: #b4bfb4;
 `
